@@ -29,6 +29,7 @@ def test_create_name():
 
     calc = tpl.create_name(-10)
     assert calc == "plot_-10.png"
+    assert calc == "1010.png"
 
     with pytest.raises(TypeError):
         calc = tpl.create_name("10")
