@@ -11,8 +11,12 @@ def compute_mean(data):
     Returns:
         float: the mean value of the list
     """
-    mean = sum(data)/ len(data)
-    return mean
+
+    if len(data) == 0:
+        return None
+    else:
+        mean = sum(data)/ len(data)
+        return mean
 
 def read_data(filename, colname, num_measurements):
     """Read data from a file and select a column
@@ -38,7 +42,10 @@ def create_name(num):
     Returns:
         str: A name for a png file
     """
-    name = f"plot_{str(num)}.png"
+    if type(num) != int:
+        raise TypeError("num should be an int")
+    else:
+        name = f"plot_{str(num)}.png"
     return name
 
 def plot_data(data, mean, xlabel, ylabel):
